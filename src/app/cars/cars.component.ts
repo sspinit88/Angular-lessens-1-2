@@ -19,6 +19,7 @@ export class CarsComponent {
         'Lada',
         'BMW',
         'Audi',
+        'Niva'
     ];
     dates = [
         new Date(2015, 3, 5).toDateString(),
