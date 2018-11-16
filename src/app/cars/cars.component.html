@@ -1,0 +1,46 @@
+<input type="text" class="form-control"
+       [(ngModel)]="carName">
+<br>
+<button [disabled]="!canAddCarFlag" class="btn btn-primary"
+        (click)='addCar()'>Добавить машину</button>
+<br>
+<p *ngIf="!addCarStatus; else successStatus">Не добавлена.</p>
+<ng-template #successStatus>
+    <p>Добавлена</p>
+</ng-template>
+
+<hr>
+<!--<app-car *ngFor="let itemCar of cars"></app-car>-->
+<ul>
+    <li *ngFor="let itemCar of cars; let idx = index"
+
+        [ngClass]="{'big-text': setBigCarText(itemCar)}"
+
+        [ngStyle]="{backgroundColor: (idx + 1) % 2 === 0 ? 'brown' : 'transparent',
+                    color: (idx + 1) % 2 === 0 ? '#fff' : '#000'}">
+
+        <b>{{idx + 1}}</b> - {{itemCar}}
+    </li>
+</ul>
+
+<hr>
+<!--<input type="text" class="form-control" (input)="onKeyUp($event)">-->
+<!--<input type="text" class="form-control" #myInp (input)="onKeyUp(myInp.value)">-->
+<!--<input type="text" class="form-control" #myInp (keyup)="onKeyUp($event)">-->
+<input type="text" class="form-control" #myInp (keyup.enter)="onKeyUp($event)">
+<br>
+<input type="text" class="form-control" [(ngModel)]="inputText">
+<br>
+<p>{{inputText}}</p>
+
+<hr>
+<h3>Pipes</h3>
+<ul>
+    <li *ngFor="let date of dates; let idx = index">
+        <b>{{idx + 1}}</b> - {{ date | uppercase }}
+    </li>
+</ul>
+
+<hr>
+<br>
+
